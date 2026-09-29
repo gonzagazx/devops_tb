@@ -1,9 +1,363 @@
 <!DOCTYPE html>
-<header>
-</header>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carros - Disney Pixar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #101820;
+            color: white;
+        }
+
+        header {
+            background: #e21b23;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,.4);
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd21c;
+        }
+
+        .hero {
+            min-height: 550px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background:
+                linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.55)),
+                linear-gradient(135deg, #1683c7, #63c5f0);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 8vw, 90px);
+            color: #ffd21c;
+            text-shadow: 5px 5px #c4121c;
+            text-transform: uppercase;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            margin: 20px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 30px;
+            background: #e21b23;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .button:hover {
+            background: #ffd21c;
+            color: #111;
+            transform: translateY(-3px);
+        }
+
+        .car {
+            width: 350px;
+            height: 230px;
+            background: #d71920;
+            border-radius: 120px 150px 40px 40px;
+            border: 5px solid #fff;
+            position: relative;
+            box-shadow: 0 20px 30px rgba(0,0,0,.5);
+        }
+
+        .car::before {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 75px;
+            background: #73c7e8;
+            top: 25px;
+            left: 95px;
+            border-radius: 40px 40px 10px 10px;
+            border: 4px solid #222;
+        }
+
+        .wheel {
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            background: #111;
+            border-radius: 50%;
+            bottom: -30px;
+            border: 10px solid #444;
+        }
+
+        .wheel.left {
+            left: 45px;
+        }
+
+        .wheel.right {
+            right: 45px;
+        }
+
+        .number {
+            position: absolute;
+            top: 105px;
+            left: 145px;
+            font-size: 45px;
+            font-weight: bold;
+            color: #ffd21c;
+        }
+
+        .section {
+            padding: 70px 8%;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 40px;
+            color: #ffd21c;
+            margin-bottom: 45px;
+        }
+
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.8;
+            color: #ddd;
+            font-size: 17px;
+        }
+
+        .characters {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .character {
+            background: #1c2830;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border-top: 5px solid #e21b23;
+            transition: .3s;
+        }
+
+        .character:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,.4);
+        }
+
+        .character .emoji {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
+
+        .character h3 {
+            color: #ffd21c;
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+
+        .character p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .movie {
+            background: #e21b23;
+            text-align: center;
+        }
+
+        .movie h2 {
+            color: white;
+        }
+
+        .movie p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            background: #080d11;
+            color: #aaa;
+        }
+
+        @media (max-width: 800px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .car {
+                transform: scale(.8);
+            }
+
+            .characters {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
 <body>
-    <center>
-    <h1>Usando projeto na Turma B - novo status</h1>
-    <h1> novo conteudo para manutenção</h1>
-    </center>
+
+    <header>
+        <div class="logo">🏁 Carros</div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#historia">História</a>
+            <a href="#personagens">Personagens</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-text">
+            <h1>Carros</h1>
+
+            <h2>Ka-chow! ⚡</h2>
+
+            <p>
+                Conheça o mundo de Carros, uma aventura cheia de velocidade,
+                amizade e desafios. Acompanhe Relâmpago McQueen em sua jornada
+                pelas estradas e pela famosa cidade de Radiator Springs.
+            </p>
+
+            <a href="#personagens" class="button">
+                Conhecer personagens
+            </a>
+        </div>
+
+        <div class="car">
+            <div class="number">95</div>
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+
+    </section>
+
+    <section class="section" id="historia">
+
+        <h2>Sobre o desenho</h2>
+
+        <div class="about">
+            <p>
+                <strong>Carros</strong> é uma animação da Pixar que apresenta
+                um mundo onde os carros possuem personalidade e vivem diversas
+                aventuras. A história acompanha Relâmpago McQueen, um jovem
+                carro de corrida que aprende importantes lições sobre amizade,
+                humildade e trabalho em equipe.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="section" id="personagens">
+
+        <h2>Personagens</h2>
+
+        <div class="characters">
+
+            <div class="character">
+                <div class="emoji">🏎️</div>
+                <h3>Relâmpago McQueen</h3>
+                <p>
+                    Um carro de corrida veloz e determinado que sonha em
+                    conquistar grandes troféus.
+                </p>
+            </div>
+
+            <div class="character">
+                <div class="emoji">🚙</div>
+                <h3>Mate</h3>
+                <p>
+                    O melhor amigo de McQueen. Divertido, leal e sempre
+                    disposto a ajudar seus amigos.
+                </p>
+            </div>
+
+            <div class="character">
+                <div class="emoji">🚘</div>
+                <h3>Sally</h3>
+                <p>
+                    Uma Porsche que vive em Radiator Springs e ajuda McQueen
+                    a enxergar a importância de uma vida mais tranquila.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section movie">
+
+        <h2>Radiator Springs 🏜️</h2>
+
+        <p>
+            A pequena cidade de Radiator Springs se torna um lugar muito
+            importante para McQueen. Lá, ele conhece novos amigos e descobre
+            que vencer uma corrida não é a única coisa que importa.
+        </p>
+
+    </section>
+
+    <footer>
+        Página temática sobre Carros — Projeto HTML e CSS
+    </footer>
+
 </body>
+</html>
