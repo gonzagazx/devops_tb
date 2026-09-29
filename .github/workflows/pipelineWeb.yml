@@ -25,6 +25,7 @@ jobs:
       - name: Visualizar os arquivos
         run: ls -l
   deploy:
+    needs: Validar
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
